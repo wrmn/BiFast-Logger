@@ -1,0 +1,10 @@
+{
+  "host": "127.0.0.1",
+  "username": "test",
+  "password": "PassworD12312312?",
+  "database": "bi_fast_logger",
+  "port": "3306",
+  "broker": "localhost:9092",
+  "consumer_topics": ["mpc.json.bifast.response", "mpc.json.bifast.request"],
+  "group": "test-go"
+}

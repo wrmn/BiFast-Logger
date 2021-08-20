@@ -1,0 +1,15 @@
+2021/08/20 09:49:29 Service started
+2021/08/20 09:49:29 Get config database
+2021/08/20 09:49:29 Host: `127.0.0.1`, username: `test`, database: `bi_fast_logger`, port: `3306`
+2021/08/20 09:49:29 Kafka Config -> Broker: `localhost:9092`, Producer Topic: `[]`, Consumer Topics: `test-go`, Group: `%!v(MISSING)`
+2021/08/20 09:50:17 Service started
+2021/08/20 09:50:17 Get config database
+2021/08/20 09:50:17 Host: `127.0.0.1`, username: `test`, database: `bi_fast_logger`, port: `3306`
+2021/08/20 09:50:17 Kafka Config -> Broker: `localhost:9092`, Producer Topic: `[mpc.json.bifast.response mpc.json.bifast.request]`, Consumer Topics: `test-go`, Group: `%!v(MISSING)`
+2021/08/20 09:58:09 Service started
+2021/08/20 09:58:09 Get config database
+2021/08/20 09:58:09 Host: `127.0.0.1`, username: `test`, database: `bi_fast_logger`, port: `3306`
+2021/08/20 09:58:09 Kafka Config -> Broker: `localhost:9092`, Consumer Topics: `[mpc.json.bifast.response mpc.json.bifast.request]`, Group: `test-go`
+2021/08/20 09:58:09 Consumer (Kafka) started!
+2021/08/20 09:58:15 New Request from Kafka
+2021/08/20 09:58:15 Message consumed from mpc.json.bifast.response[0]@22: {"traceNum":"321812","pcode":"","fromId":"FASTIDJA","toId":"INDOIDJA","businessMessageId":"20210301FASTIDJA010HRB12345678","messageDefinitionId":"pacs.002.001.10","creationDate":"2021-03-01T20:00:00","messageId":"20210301FASTIDJA01012345678","creationDateTime":"2021-03-01T19:00:00","originalEndtoEndId":"20210301INDOIDJA510ORB12345678","originalTransactionId":"20210301INDOIDJA51012345678","transactionStatus":"ACTC","reasonCode":"U000","creditorName":"JOHN SMITH","creditorAccountId":"987654321","creditorAccountType":"CACC","creditorType":"01","creditorBankID":"0102030405060708","creditorResidentStatus":"01","creditorTownName":"0300"}, Header: 3218121629428295148
