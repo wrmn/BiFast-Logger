@@ -1,5 +1,10 @@
 package main
 
+import "database/sql"
+
+type ProductModel struct {
+	Db *sql.DB
+}
 type DbConfig struct {
 	Host     string `json:"host"`
 	Username string `json:"username"`

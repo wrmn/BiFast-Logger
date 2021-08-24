@@ -2,6 +2,7 @@ package main
 
 import (
 	"encoding/json"
+	"fmt"
 	"io/ioutil"
 	"log"
 	"os"
@@ -34,4 +35,18 @@ func getConfig() (configDatabase DbConfig, configKafka KafkaConfig) {
 func getCommonValue(content []byte) (res CommonValue) {
 	json.Unmarshal(content, &res)
 	return res
+}
+
+func (productModel ProductModel) Count(traceNum string) (int64, error) {
+	query := fmt.Sprintf("select count(*) as count from logging where tracenum = %s", traceNum)
+	rows, err := productModel.Db.Query(query)
+	if err != nil {
+		return 0, err
+	} else {
+		var count_product int64
+		for rows.Next() {
+			rows.Scan(&count_product)
+		}
+		return count_product, nil
+	}
 }

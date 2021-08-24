@@ -67,17 +67,42 @@ func consumeFromKafka(conf KafkaConfig, db *sql.DB) {
 
 			status := fmt.Sprintf("received from %s", msg.TopicPartition)
 
-			query := fmt.Sprintf("INSERT INTO logging VALUES ( '%s', now(), now(), '%s', '%s', null )",
-				commonValue.TraceNum, status, commonValue.MsgDefId)
-
-			insert, err := db.Query(query)
-
-			// if there is an error inserting, handle it
-			if err != nil {
-				panic(err.Error())
+			productModel := ProductModel{
+				Db: db,
 			}
-			// be careful deferring Queries if you are using transactions
-			defer insert.Close()
+
+			countProduct, err2 := productModel.Count(commonValue.TraceNum)
+
+			if err2 != nil {
+				fmt.Println(err2)
+			} else {
+				if countProduct == 0 {
+					query := fmt.Sprintf("INSERT INTO logging VALUES ( '%s', now(), now(), '%s', '%s', null )",
+						commonValue.TraceNum, status, commonValue.MsgDefId)
+
+					insert, err := db.Query(query)
+
+					// if there is an error inserting, handle it
+					if err != nil {
+						log.Println(err.Error())
+					}
+					// be careful deferring Queries if you are using transactions
+					defer insert.Close()
+				} else {
+					query := fmt.Sprintf("UPDATE `logging` SET `response_message_identifier` = '%s', `status`= '%s', `date_updated`=now() WHERE `logging`.`tracenum` = %s",
+						commonValue.MsgDefId, status, commonValue.TraceNum)
+
+					update, err := db.Query(query)
+
+					// if there is an error inserting, handle it
+					if err != nil {
+						log.Println(err.Error())
+					}
+					// be careful deferring Queries if you are using transactions
+					defer update.Close()
+				}
+			}
+
 		} else {
 			log.Printf("Consumer error: %v (%v)\n", err, msg)
 		}
