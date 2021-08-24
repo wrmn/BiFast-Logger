@@ -77,8 +77,8 @@ func consumeFromKafka(conf KafkaConfig, db *sql.DB) {
 				fmt.Println(err2)
 			} else {
 				if countProduct == 0 {
-					query := fmt.Sprintf("INSERT INTO logging VALUES ( '%s', now(), now(), '%s', '%s', null )",
-						commonValue.TraceNum, status, commonValue.MsgDefId)
+					query := fmt.Sprintf("INSERT INTO logging VALUES ( '%s', '%s', now(), '%s', '%s', null )",
+						commonValue.TraceNum, commonValue.CreationDate, status, commonValue.MsgDefId)
 
 					insert, err := db.Query(query)
 

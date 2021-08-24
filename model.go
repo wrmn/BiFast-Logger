@@ -20,6 +20,7 @@ type KafkaConfig struct {
 }
 
 type CommonValue struct {
-	MsgDefId string `json:"messageDefinitionId"`
-	TraceNum string `json:"traceNum"`
+	MsgDefId     string `json:"messageDefinitionId"`
+	TraceNum     string `json:"traceNum"`
+	CreationDate string `json:"creationDate"`
 }

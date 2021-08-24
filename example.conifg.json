@@ -1,0 +1,11 @@
+{
+    "host": "{mysql host}",
+    "username": "{mysql username}",
+    "password": "{mysql password}",
+    "database": "{mysql database}",
+    "port": "{mysql port}",
+    "broker": "{kafka broker}",
+    "consumer_topics": ["{consumer topic}"],
+    "group": "{kafka group}"
+  }
+  

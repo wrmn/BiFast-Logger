@@ -60,3 +60,162 @@
 , Header: 1234561629774046430
 2021/08/24 10:01:22 New Request from Kafka
 2021/08/24 10:01:22 Message consumed from mpc.json.bifast.response[0]@24: {"traceNum":"123456","pcode":"","fromId":"FASTIDJA","toId":"INDOIDJA","businessMessageId":"20210301FASTIDJA010HRB12345678","messageDefinitionId":"pacs.002.001.10","creationDate":"2021-03-01T20:00:00","messageId":"20210301FASTIDJA01012345678","creationDateTime":"2021-03-01T19:00:00","originalEndtoEndId":"20210301INDOIDJA510ORB12345678","originalTransactionId":"20210301INDOIDJA51012345678","transactionStatus":"ACTC","reasonCode":"U000","creditorName":"JOHN SMITH","creditorAccountId":"987654321","creditorAccountType":"CACC","creditorType":"01","creditorBankID":"0102030405060708","creditorResidentStatus":"01","creditorTownName":"0300"}, Header: 1234561629774046430
+2021/08/24 10:02:09 Service started
+2021/08/24 10:02:09 Get config database
+2021/08/24 10:02:09 Host: `127.0.0.1`, username: `test`, database: `bi_fast_logger`, port: `3306`
+2021/08/24 10:02:09 Kafka Config -> Broker: `localhost:9092`, Consumer Topics: `[mpc.json.bifast.response mpc.json.bifast.request]`, Group: `logger`
+2021/08/24 10:02:09 Consumer (Kafka) started!
+2021/08/24 10:03:42 Service started
+2021/08/24 10:03:42 Get config database
+2021/08/24 10:03:42 Host: `127.0.0.1`, username: `test`, database: `bi_fast_logger`, port: `3306`
+2021/08/24 10:03:42 Kafka Config -> Broker: `localhost:9092`, Consumer Topics: `[mpc.json.bifast.response mpc.json.bifast.request]`, Group: `logger`
+2021/08/24 10:03:42 Consumer (Kafka) started!
+2021/08/24 10:04:25 New Request from Kafka
+2021/08/24 10:04:25 Message consumed from mpc.json.bifast.request[0]@27: {
+    "traceNum": "123456",
+    "pcode": "000001",
+    "fromId": "INDOIDJA",
+    "toId": "FASTIDJA",
+    "businessMessageId": "20210301INDOIDJA510ORB12345678",
+    "messageDefinitionId":"pacs.008.001.08",
+    "businessServiceId": "",
+    "creationDate":"2021-03-01T20:00:00",
+    "copyDuplicate":"",
+    "possibleDuplicate":"",
+    "messageId":"20210301INDOIDJA51012345678",
+    "creationDateTime":"2021-03-01T19:00:00",
+    "NumberTransaction":"1",
+    "SettlementMethod":"CLRG",
+    "EndToEndID":"20210301INDOIDJA510ORB12345678",
+    "TransactionID":"20210301INDOIDJA11012345678",
+    "InterBankSettlementAmount":"1234.56",
+    "CurrencyCode":"IDR",
+    "ChargeBearer":"DEBT",
+    "DebtorBankID":"INDOIDJA",
+    "CreditorBankID":"CENAIDJA",
+    "CustomerAccountNumber":"987654321"
+}
+, Header: 1234561629774225258
+2021/08/24 10:04:25 Error 1064: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ':00:00, now(), 'received from mpc.json.bifast.request[0]@27', 'pacs.008.001.08',' at line 1
+2021/08/24 10:04:25 New Request from Kafka
+2021/08/24 10:04:25 Message consumed from mpc.json.bifast.response[0]@25: {"traceNum":"123456","pcode":"","fromId":"FASTIDJA","toId":"INDOIDJA","businessMessageId":"20210301FASTIDJA010HRB12345678","messageDefinitionId":"pacs.002.001.10","creationDate":"2021-03-01T20:00:00","messageId":"20210301FASTIDJA01012345678","creationDateTime":"2021-03-01T19:00:00","originalEndtoEndId":"20210301INDOIDJA510ORB12345678","originalTransactionId":"20210301INDOIDJA51012345678","transactionStatus":"ACTC","reasonCode":"U000","creditorName":"JOHN SMITH","creditorAccountId":"987654321","creditorAccountType":"CACC","creditorType":"01","creditorBankID":"0102030405060708","creditorResidentStatus":"01","creditorTownName":"0300"}, Header: 1234561629774225258
+2021/08/24 10:04:25 Error 1064: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ':00:00, now(), 'received from mpc.json.bifast.response[0]@25', 'pacs.002.001.10'' at line 1
+2021/08/24 10:04:52 New Request from Kafka
+2021/08/24 10:04:52 Message consumed from mpc.json.bifast.request[0]@28: {
+    "traceNum": "123456",
+    "pcode": "000001",
+    "fromId": "INDOIDJA",
+    "toId": "FASTIDJA",
+    "businessMessageId": "20210301INDOIDJA510ORB12345678",
+    "messageDefinitionId":"pacs.008.001.08",
+    "businessServiceId": "",
+    "creationDate":"2021-03-01T20:00:00",
+    "copyDuplicate":"",
+    "possibleDuplicate":"",
+    "messageId":"20210301INDOIDJA51012345678",
+    "creationDateTime":"2021-03-01T19:00:00",
+    "NumberTransaction":"1",
+    "SettlementMethod":"CLRG",
+    "EndToEndID":"20210301INDOIDJA510ORB12345678",
+    "TransactionID":"20210301INDOIDJA11012345678",
+    "InterBankSettlementAmount":"1234.56",
+    "CurrencyCode":"IDR",
+    "ChargeBearer":"DEBT",
+    "DebtorBankID":"INDOIDJA",
+    "CreditorBankID":"CENAIDJA",
+    "CustomerAccountNumber":"987654321"
+}
+, Header: 1234561629774292920
+2021/08/24 10:04:52 Error 1064: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ':00:00, now(), 'received from mpc.json.bifast.request[0]@28', 'pacs.008.001.08',' at line 1
+2021/08/24 10:04:52 New Request from Kafka
+2021/08/24 10:04:52 Message consumed from mpc.json.bifast.response[0]@26: {"traceNum":"123456","pcode":"","fromId":"FASTIDJA","toId":"INDOIDJA","businessMessageId":"20210301FASTIDJA010HRB12345678","messageDefinitionId":"pacs.002.001.10","creationDate":"2021-03-01T20:00:00","messageId":"20210301FASTIDJA01012345678","creationDateTime":"2021-03-01T19:00:00","originalEndtoEndId":"20210301INDOIDJA510ORB12345678","originalTransactionId":"20210301INDOIDJA51012345678","transactionStatus":"ACTC","reasonCode":"U000","creditorName":"JOHN SMITH","creditorAccountId":"987654321","creditorAccountType":"CACC","creditorType":"01","creditorBankID":"0102030405060708","creditorResidentStatus":"01","creditorTownName":"0300"}, Header: 1234561629774292920
+2021/08/24 10:04:52 Error 1064: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ':00:00, now(), 'received from mpc.json.bifast.response[0]@26', 'pacs.002.001.10'' at line 1
+2021/08/24 10:05:22 Service started
+2021/08/24 10:05:22 Get config database
+2021/08/24 10:05:22 Host: `127.0.0.1`, username: `test`, database: `bi_fast_logger`, port: `3306`
+2021/08/24 10:05:22 Kafka Config -> Broker: `localhost:9092`, Consumer Topics: `[mpc.json.bifast.response mpc.json.bifast.request]`, Group: `logger`
+2021/08/24 10:05:22 Consumer (Kafka) started!
+2021/08/24 10:05:55 New Request from Kafka
+2021/08/24 10:05:55 Message consumed from mpc.json.bifast.request[0]@29: {
+    "traceNum": "123456",
+    "pcode": "000001",
+    "fromId": "INDOIDJA",
+    "toId": "FASTIDJA",
+    "businessMessageId": "20210301INDOIDJA510ORB12345678",
+    "messageDefinitionId":"pacs.008.001.08",
+    "businessServiceId": "",
+    "creationDate":"2021-03-01T20:00:00",
+    "copyDuplicate":"",
+    "possibleDuplicate":"",
+    "messageId":"20210301INDOIDJA51012345678",
+    "creationDateTime":"2021-03-01T19:00:00",
+    "NumberTransaction":"1",
+    "SettlementMethod":"CLRG",
+    "EndToEndID":"20210301INDOIDJA510ORB12345678",
+    "TransactionID":"20210301INDOIDJA11012345678",
+    "InterBankSettlementAmount":"1234.56",
+    "CurrencyCode":"IDR",
+    "ChargeBearer":"DEBT",
+    "DebtorBankID":"INDOIDJA",
+    "CreditorBankID":"CENAIDJA",
+    "CustomerAccountNumber":"987654321"
+}
+, Header: 1234561629774327209
+2021/08/24 10:05:55 New Request from Kafka
+2021/08/24 10:05:55 Message consumed from mpc.json.bifast.response[0]@27: {"traceNum":"123456","pcode":"","fromId":"FASTIDJA","toId":"INDOIDJA","businessMessageId":"20210301FASTIDJA010HRB12345678","messageDefinitionId":"pacs.002.001.10","creationDate":"2021-03-01T20:00:00","messageId":"20210301FASTIDJA01012345678","creationDateTime":"2021-03-01T19:00:00","originalEndtoEndId":"20210301INDOIDJA510ORB12345678","originalTransactionId":"20210301INDOIDJA51012345678","transactionStatus":"ACTC","reasonCode":"U000","creditorName":"JOHN SMITH","creditorAccountId":"987654321","creditorAccountType":"CACC","creditorType":"01","creditorBankID":"0102030405060708","creditorResidentStatus":"01","creditorTownName":"0300"}, Header: 1234561629774327209
+2021/08/24 10:14:15 New Request from Kafka
+2021/08/24 10:14:15 Message consumed from mpc.json.bifast.request[0]@30: {
+    "traceNum": "125321",
+    "pcode": "000001",
+    "fromId": "INDOIDJA",
+    "toId": "FASTIDJA",
+    "businessMessageId": "20210301INDOIDJA510ORB12345678",
+    "messageDefinitionId":"pacs.008.001.08",
+    "businessServiceId": "",
+    "creationDate":"2021-03-01T20:00:00",
+    "copyDuplicate":"",
+    "possibleDuplicate":"",
+    "messageId":"20210301INDOIDJA51012345678",
+    "creationDateTime":"2021-03-01T19:00:00",
+    "NumberTransaction":"1",
+    "SettlementMethod":"CLRG",
+    "EndToEndID":"20210301INDOIDJA510ORB12345678",
+    "TransactionID":"20210301INDOIDJA11012345678",
+    "InterBankSettlementAmount":"1234.56",
+    "CurrencyCode":"IDR",
+    "ChargeBearer":"DEBT",
+    "DebtorBankID":"INDOIDJA",
+    "CreditorBankID":"CENAIDJA",
+    "CustomerAccountNumber":"987654321"
+}
+, Header: 1253211629774855287
+2021/08/24 10:14:15 New Request from Kafka
+2021/08/24 10:14:15 Message consumed from mpc.json.bifast.response[0]@28: {"traceNum":"125321","pcode":"","fromId":"FASTIDJA","toId":"INDOIDJA","businessMessageId":"20210301FASTIDJA010HRB12345678","messageDefinitionId":"pacs.002.001.10","creationDate":"2021-03-01T20:00:00","messageId":"20210301FASTIDJA01012345678","creationDateTime":"2021-03-01T19:00:00","originalEndtoEndId":"20210301INDOIDJA510ORB12345678","originalTransactionId":"20210301INDOIDJA51012345678","transactionStatus":"ACTC","reasonCode":"U000","creditorName":"JOHN SMITH","creditorAccountId":"987654321","creditorAccountType":"CACC","creditorType":"01","creditorBankID":"0102030405060708","creditorResidentStatus":"01","creditorTownName":"0300"}, Header: 1253211629774855287
+2021/08/24 10:15:35 New Request from Kafka
+2021/08/24 10:15:35 Message consumed from mpc.json.bifast.request[0]@31: {
+    "traceNum": "125322",
+    "pcode": "000001",
+    "fromId": "INDOIDJA",
+    "toId": "FASTIDJA",
+    "businessMessageId": "20210301INDOIDJA510ORB12345678",
+    "messageDefinitionId":"pacs.008.001.08",
+    "businessServiceId": "",
+    "creationDate":"2021-03-01T20:00:00",
+    "copyDuplicate":"",
+    "possibleDuplicate":"",
+    "messageId":"20210301INDOIDJA51012345678",
+    "creationDateTime":"2021-03-01T19:00:00",
+    "NumberTransaction":"1",
+    "SettlementMethod":"CLRG",
+    "EndToEndID":"20210301INDOIDJA510ORB12345678",
+    "TransactionID":"20210301INDOIDJA11012345678",
+    "InterBankSettlementAmount":"1234.56",
+    "CurrencyCode":"IDR",
+    "ChargeBearer":"DEBT",
+    "DebtorBankID":"INDOIDJA",
+    "CreditorBankID":"CENAIDJA",
+    "CustomerAccountNumber":"987654321"
+}
+, Header: 1253221629774935444
+2021/08/24 10:16:11 New Request from Kafka
+2021/08/24 10:16:11 Message consumed from mpc.json.bifast.response[0]@29: {"traceNum":"125322","pcode":"","fromId":"FASTIDJA","toId":"INDOIDJA","businessMessageId":"20210301FASTIDJA010HRB12345678","messageDefinitionId":"pacs.002.001.10","creationDate":"2021-03-01T20:00:00","messageId":"20210301FASTIDJA01012345678","creationDateTime":"2021-03-01T19:00:00","originalEndtoEndId":"20210301INDOIDJA510ORB12345678","originalTransactionId":"20210301INDOIDJA51012345678","transactionStatus":"ACTC","reasonCode":"U000","creditorName":"JOHN SMITH","creditorAccountId":"987654321","creditorAccountType":"CACC","creditorType":"01","creditorBankID":"0102030405060708","creditorResidentStatus":"01","creditorTownName":"0300"}, Header: 1253221629774935444
