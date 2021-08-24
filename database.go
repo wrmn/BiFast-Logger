@@ -6,16 +6,12 @@ import (
 	"log"
 )
 
-func dbInit(config DbConfig) *sql.DB {
+func dbInit(config DbConfig) (*sql.DB, error) {
 	dbConfig := fmt.Sprintf("%s:%s@tcp(%s:%s)/%s",
 		config.Username, config.Password, config.Host, config.Port, config.Database)
 	db, err := sql.Open("mysql", dbConfig)
 
-	if err != nil {
-		panic(err.Error())
-	}
-
-	return db
+	return db, err
 }
 
 func (dBase DatabaseConf) Count(traceNum string) (int64, error) {

@@ -14,13 +14,18 @@ func main() {
 	// initialize log
 	file, err := os.OpenFile("log.txt", os.O_APPEND|os.O_CREATE|os.O_WRONLY, 0666)
 	if err != nil {
-		log.Fatal("Found error in log ", err)
+		log.Fatal("Found error in log : ", err)
 	}
 	log.SetOutput(file)
 	log.Println("Service started")
 
-	configDatabase, configKafka := getConfig()
-	db := dbInit(configDatabase)
+	configDatabase, configKafka := getConfig("./config.json")
+	db, err := dbInit(configDatabase)
+
+	if err != nil {
+		log.Fatal("Error initializing database : ", err)
+	}
+
 	loggingDatabase := DatabaseConf{
 		Db: db,
 	}

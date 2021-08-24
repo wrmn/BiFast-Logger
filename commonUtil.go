@@ -7,10 +7,10 @@ import (
 	"os"
 )
 
-func getConfig() (configDatabase DbConfig, configKafka KafkaConfig) {
+func getConfig(fileName string) (configDatabase DbConfig, configKafka KafkaConfig) {
 	// Return config for setting up Kafka Producer and Consumer
 	log.Printf("Get config database")
-	file, _ := os.Open("./config.json")
+	file, _ := os.Open(fileName)
 	defer file.Close()
 
 	// Read config file
