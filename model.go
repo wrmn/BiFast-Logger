@@ -2,7 +2,7 @@ package main
 
 import "database/sql"
 
-type ProductModel struct {
+type DatabaseConf struct {
 	Db *sql.DB
 }
 type DbConfig struct {

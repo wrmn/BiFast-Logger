@@ -2,7 +2,6 @@ package main
 
 import (
 	"encoding/json"
-	"fmt"
 	"io/ioutil"
 	"log"
 	"os"
@@ -23,9 +22,9 @@ func getConfig() (configDatabase DbConfig, configKafka KafkaConfig) {
 	// Unmarshal config to variable
 	json.Unmarshal(b, &configDatabase)
 	json.Unmarshal(b, &configKafka)
+
 	log.Printf("Host: `%v`, username: `%v`, database: `%v`, port: `%v`",
 		configDatabase.Host, configDatabase.Username, configDatabase.Database, configDatabase.Port)
-
 	log.Printf("Kafka Config -> Broker: `%v`, Consumer Topics: `%v`, Group: `%v`",
 		configKafka.Broker, configKafka.ConsumerTopics, configKafka.Group)
 
@@ -35,18 +34,4 @@ func getConfig() (configDatabase DbConfig, configKafka KafkaConfig) {
 func getCommonValue(content []byte) (res CommonValue) {
 	json.Unmarshal(content, &res)
 	return res
-}
-
-func (productModel ProductModel) Count(traceNum string) (int64, error) {
-	query := fmt.Sprintf("select count(*) as count from logging where tracenum = %s", traceNum)
-	rows, err := productModel.Db.Query(query)
-	if err != nil {
-		return 0, err
-	} else {
-		var count_product int64
-		for rows.Next() {
-			rows.Scan(&count_product)
-		}
-		return count_product, nil
-	}
 }
