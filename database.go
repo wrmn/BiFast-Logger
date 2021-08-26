@@ -6,11 +6,15 @@ import (
 	"log"
 )
 
-func dbInit(config DbConfig) (*sql.DB, error) {
+func (config DbConfig) dbInit() (db *sql.DB, err error) {
 	dbConfig := fmt.Sprintf("%s:%s@tcp(%s:%s)/%s",
 		config.Username, config.Password, config.Host, config.Port, config.Database)
-	db, err := sql.Open("mysql", dbConfig)
+	db, err = sql.Open("mysql", dbConfig)
+	if err != nil {
+		return db, err
+	}
 
+	err = db.Ping()
 	return db, err
 }
 

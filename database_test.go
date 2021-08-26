@@ -4,7 +4,7 @@ import "testing"
 
 func TestCounting(t *testing.T) {
 	config, _ := getConfig("./config.json")
-	db, _ := dbInit(config.Db)
+	db, _ := config.Db.dbInit()
 
 	loggingDatabase := DatabaseConf{
 		Db: db,

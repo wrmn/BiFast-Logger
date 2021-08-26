@@ -23,7 +23,7 @@ func main() {
 	if err != nil {
 		log.Fatal("Error Get Config : ", err)
 	}
-	db, err := dbInit(config.Db)
+	db, err := config.Db.dbInit()
 
 	if err != nil {
 		log.Fatal("Error initializing database : ", err)
@@ -32,12 +32,12 @@ func main() {
 	loggingDatabase := DatabaseConf{
 		Db: db,
 	}
-	consumeFromKafka(config.Kafka, loggingDatabase)
+	config.Kafka.consumeFromKafka(loggingDatabase)
 
 	defer db.Close()
 }
 
-func consumeFromKafka(conf KafkaConfig, loggingDatabase DatabaseConf) {
+func (conf KafkaConfig) consumeFromKafka(loggingDatabase DatabaseConf) {
 	log.Println("Consumer (Kafka) started!")
 
 	// Setting up Consumer (Kafka) config
