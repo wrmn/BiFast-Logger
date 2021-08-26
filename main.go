@@ -19,8 +19,11 @@ func main() {
 	log.SetOutput(file)
 	log.Println("Service started")
 
-	configDatabase, configKafka := getConfig("./config.json")
-	db, err := dbInit(configDatabase)
+	config, err := getConfig("./config.json")
+	if err != nil {
+		log.Fatal("Error Get Config : ", err)
+	}
+	db, err := dbInit(config.Db)
 
 	if err != nil {
 		log.Fatal("Error initializing database : ", err)
@@ -29,7 +32,7 @@ func main() {
 	loggingDatabase := DatabaseConf{
 		Db: db,
 	}
-	consumeFromKafka(configKafka, loggingDatabase)
+	consumeFromKafka(config.Kafka, loggingDatabase)
 
 	defer db.Close()
 }
@@ -64,7 +67,7 @@ func consumeFromKafka(conf KafkaConfig, loggingDatabase DatabaseConf) {
 			countProduct, err2 := loggingDatabase.Count(commonValue.TraceNum)
 
 			if err2 != nil {
-				fmt.Println(err2)
+				log.Println(err2)
 			} else {
 				if countProduct == 0 {
 					loggingDatabase.insertData(commonValue, status)

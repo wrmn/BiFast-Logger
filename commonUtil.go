@@ -7,28 +7,38 @@ import (
 	"os"
 )
 
-func getConfig(fileName string) (configDatabase DbConfig, configKafka KafkaConfig) {
+func getConfig(fileName string) (config Config, err error) {
 	// Return config for setting up Kafka Producer and Consumer
 	log.Printf("Get config database")
-	file, _ := os.Open(fileName)
+	file, err := os.Open(fileName)
+	if err != nil {
+		return config, err
+	}
+
 	defer file.Close()
 
 	// Read config file
 	b, err := ioutil.ReadAll(file)
 	if err != nil {
-		log.Fatal(err)
+		return config, err
 	}
 
 	// Unmarshal config to variable
-	json.Unmarshal(b, &configDatabase)
-	json.Unmarshal(b, &configKafka)
+	err = json.Unmarshal(b, &config.Kafka)
+	if err != nil {
+		return config, err
+	}
+	err = json.Unmarshal(b, &config.Db)
+	if err != nil {
+		return config, err
+	}
 
 	log.Printf("Host: `%v`, username: `%v`, database: `%v`, port: `%v`",
-		configDatabase.Host, configDatabase.Username, configDatabase.Database, configDatabase.Port)
+		config.Db.Host, config.Db.Username, config.Db.Database, config.Db.Port)
 	log.Printf("Kafka Config -> Broker: `%v`, Consumer Topics: `%v`, Group: `%v`",
-		configKafka.Broker, configKafka.ConsumerTopics, configKafka.Group)
+		config.Kafka.Broker, config.Kafka.ConsumerTopics, config.Kafka.Group)
 
-	return configDatabase, configKafka
+	return config, nil
 }
 
 func getCommonValue(content []byte) (res CommonValue) {

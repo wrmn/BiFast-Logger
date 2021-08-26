@@ -3,14 +3,8 @@ package main
 import "testing"
 
 func TestCounting(t *testing.T) {
-	configDatabase, _ := getConfig("./config.json")
-
-	db, err := dbInit(configDatabase)
-
-	if err != nil {
-		t.Log("error should be nil", err)
-		t.Fail()
-	}
+	config, _ := getConfig("./config.json")
+	db, _ := dbInit(config.Db)
 
 	loggingDatabase := DatabaseConf{
 		Db: db,

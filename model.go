@@ -24,3 +24,8 @@ type CommonValue struct {
 	TraceNum     string `json:"traceNum"`
 	CreationDate string `json:"creationDate"`
 }
+
+type Config struct {
+	Kafka KafkaConfig
+	Db    DbConfig
+}
